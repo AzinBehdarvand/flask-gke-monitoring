@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-monitor-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-monitor-demo
+  template:
+    metadata:
+      labels:
+        app: flask-monitor-demo
+    spec:
+      containers:
+      - name: flask-container
+        image: gcr.io/training-platform-engineer/flask-monitor-demo:v1
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-monitor-service
+spec:
+  selector:
+    app: flask-monitor-demo
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+  type: LoadBalancer
