@@ -40,3 +40,9 @@ kubectl get service flask-monitor-service
 ## 📸 Screenshots
 
 ![Dashboard](images/dashboard.png)
+
+## ✨ Features
+
+- Auto-scalable Kubernetes deployment on GKE (Autopilot)
+- Real-time log collection via Cloud Logging
+- Dashboard visualization via Cloud Monitoring
